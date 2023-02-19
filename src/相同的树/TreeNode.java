@@ -26,22 +26,25 @@ public class TreeNode {
         root.val = nodeVal[0];
         TreeNode node = null, leftChild = null, rightChild = null;
         queue.offer(root);
-        for (int depth = 2; !queue.isEmpty() && (2 * (depth + 1) - 1) < nodeVal.length; depth++) {
-            for (int j = 2 * (depth - 1) - 1; j < Math.pow(2, depth + 1) && j + 1 < nodeVal.length; j += 2) {
-                node = queue.poll();
+        int nodeIndex = 1, childDepth = 2;
+        while (!queue.isEmpty()) {
+            node = queue.poll();
+            while (nodeIndex < Math.pow(2, childDepth) - 1 && nodeIndex < nodeVal.length) {
                 if (node != null) {
-                    if (nodeVal[j] != -1) {
-                        leftChild = new TreeNode(nodeVal[j]);
+                    if (nodeVal[nodeIndex] != -1) {
+                        leftChild = new TreeNode(nodeVal[nodeIndex]);
                         node.left = leftChild;
                         queue.offer(node.left);
                     }
-                    if (nodeVal[j + 1] != -1) {
-                        rightChild = new TreeNode(nodeVal[j + 1]);
+                    if (nodeVal[nodeIndex + 1] != -1) {
+                        rightChild = new TreeNode(nodeVal[nodeIndex + 1]);
                         node.right = rightChild;
                         queue.offer(node.right);
                     }
                 }
+                nodeIndex += 2;
             }
+            childDepth++;
         }
     }
 }

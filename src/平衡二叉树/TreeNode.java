@@ -1,4 +1,4 @@
-package 对称二叉树;
+package 平衡二叉树;
 
 public class TreeNode {
     int val;

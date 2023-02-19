@@ -1,2 +1,7 @@
-package 平衡二叉树;public class Solution {
+package 平衡二叉树;
+
+public class Solution {
+    public boolean isBalanced(TreeNode root) {
+        return false;
+    }
 }

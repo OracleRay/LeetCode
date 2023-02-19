@@ -5,10 +5,8 @@
  * 例如，121 是回文，而 123 不是。
  */
 
-package isPalindrome;
+package 回文数;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.Scanner;
 
 public class Solution {

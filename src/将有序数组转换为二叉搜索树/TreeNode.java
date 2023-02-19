@@ -1,4 +1,4 @@
-package 相同的树;
+package 将有序数组转换为二叉搜索树;
 
 import java.util.LinkedList;
 import java.util.Queue;
