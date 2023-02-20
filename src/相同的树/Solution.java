@@ -37,8 +37,8 @@ public class Solution {
         int[] treeNode2 = new int[]{1,-1,2};
         TreeNode tree1 = new TreeNode();
         TreeNode tree2 = new TreeNode();
-        new TreeNode().CreateTree(tree1,treeNode1);
-        new TreeNode().CreateTree(tree2,treeNode2);
+        new TreeNode().CreateTree(treeNode1);
+        new TreeNode().CreateTree(treeNode2);
         System.out.println(new Solution().isSameTree(tree1, tree2));
     }
 }

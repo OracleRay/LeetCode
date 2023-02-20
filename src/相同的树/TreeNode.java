@@ -21,30 +21,21 @@ public class TreeNode {
         this.right = right;
     }
 
-    public void CreateTree(TreeNode root, int[] nodeVal) {
+    public void CreateTree(int[] nodeVal) {
         Queue<TreeNode> queue = new LinkedList<>();
-        root.val = nodeVal[0];
-        TreeNode node = null, leftChild = null, rightChild = null;
+        TreeNode root = new TreeNode();
         queue.offer(root);
-        int nodeIndex = 1, childDepth = 2;
-        while (!queue.isEmpty()) {
-            node = queue.poll();
-            while (nodeIndex < Math.pow(2, childDepth) - 1 && nodeIndex < nodeVal.length) {
-                if (node != null) {
-                    if (nodeVal[nodeIndex] != -1) {
-                        leftChild = new TreeNode(nodeVal[nodeIndex]);
-                        node.left = leftChild;
-                        queue.offer(node.left);
-                    }
-                    if (nodeVal[nodeIndex + 1] != -1) {
-                        rightChild = new TreeNode(nodeVal[nodeIndex + 1]);
-                        node.right = rightChild;
-                        queue.offer(node.right);
-                    }
-                }
-                nodeIndex += 2;
+        int i = 0;
+        while (!queue.isEmpty() && i < nodeVal.length) {
+            TreeNode node = queue.poll();
+            if (nodeVal[i] != -1) {
+                node.val = nodeVal[i];
+                node.left = new TreeNode();
+                node.right = new TreeNode();
+                queue.offer(node.left);
+                queue.offer(node.right);
             }
-            childDepth++;
+            i++;
         }
     }
 }
