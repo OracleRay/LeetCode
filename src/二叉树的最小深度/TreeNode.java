@@ -1,4 +1,4 @@
-package 平衡二叉树;
+package 二叉树的最小深度;
 
 import java.util.LinkedList;
 import java.util.Queue;
